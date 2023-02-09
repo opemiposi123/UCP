@@ -52,15 +52,19 @@
 							
 							&nbsp;
 							<a class="btn btn-primary" asp-action="ViewMembers">Return to Member List</a>
+							&nbsp;
+
+							<a class="btn btn-danger" asp-action="DeleteMember" asp-route-id="@Model.Id">Delete Member</a>
 						</div>
 					</div>
 					<!-- /.card-body -->
-					<form asp-action="DeleteMember" asp-route-id="@Model.Id">
+					@*<form asp-action="DeleteMember" asp-route-id="@Model.Id">
+
 						<button id="deleteButton"
 								class="kt-hidden"
 								hidden="hidden"
 								type="button"></button>
-					</form>
+					</form>*@
 				</div>
 			</div>
 		</div>
