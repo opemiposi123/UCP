@@ -53,8 +53,9 @@
 							&nbsp;
 							<a class="btn btn-primary" asp-action="ViewMembers">Return to Member List</a>
 							&nbsp;
-
-							<a class="btn btn-danger" asp-action="DeleteMember" asp-route-id="@Model.Id">Delete Member</a>
+							<form asp-action="DeleteMember" asp-route-id="@Model.Id">
+								<button type="submit" class="btn btn-danger">Delete Member</button>
+							</form>
 						</div>
 					</div>
 					<!-- /.card-body -->

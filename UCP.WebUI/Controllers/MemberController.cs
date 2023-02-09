@@ -123,7 +123,7 @@ namespace UCP.WebUI.Controllers
             }
         }
 
-        [HttpPost("quality_controls/{id}/delete")]
+        [HttpPost("member/{id}/delete")]
         [Authorize(Roles = "SuperAdmin,Admin")]
         public async Task<IActionResult> DeleteMemberAsync([FromRoute]Guid id)
         {
