@@ -1,0 +1,158 @@
+* {
+    margin: 2px;
+    padding: 2px;
+    box-sizing: border-box;
+  
+}
+
+.container {
+    overflow-x: hidden;
+    font-family: Arial;
+    font-size: 23px;
+    font-display: inherit;
+    border: 5px solid black;
+    margin: 2px;
+    padding: 2px;
+}
+
+.reciept-container {
+    margin: 6rem 13rem;
+    width: 70%;
+    padding: 1rem;
+}
+
+.heading {
+    display: flex;
+}
+
+.sub-heading {
+    flex: 1;
+}
+
+#caleb-university {
+    margin-top: 3rem;
+    color: darkred;
+    font-size: 28px;
+}
+
+#student-receipt {
+    text-align: right;
+    margin-bottom: 1rem;
+}
+
+#address {
+    margin-right: 3rem;
+    font-size: 20px;
+}
+
+#name {
+    font-weight: bold;
+}
+
+#department {
+    margin: .5rem 0;
+}
+
+.receipt-details {
+    margin-left: 10rem;
+}
+
+.receipt-details-container {
+    margin: .6rem 0;
+    display: flex;
+}
+
+.receipt-details-head {
+    font-weight: bold;
+    flex: 1;
+}
+
+.receipt-details-body {
+    flex: 1;
+}
+
+.description-container {
+    border: 1px solid black;
+    margin-top: 1rem;
+}
+
+.description-head {
+    margin-top: .5rem;
+    font-weight: bold;
+    padding: .5rem;
+}
+
+.description-body {
+    padding: .5rem;
+    margin-top: .5rem;
+    margin-bottom: 1.5rem;
+}
+
+.amount-container {
+    margin-top: .5rem;
+}
+
+#amount-desc {
+    font-weight: bold;
+}
+
+.footer {
+    margin-top: 1rem;
+    display: flex;
+}
+
+.issued-container {
+    margin-top: .5rem;
+    text-align: center;
+    flex: 1;
+}
+
+.total-price {
+    border: 1px solid black;
+    padding: .5rem;
+    font-weight: bold;
+    flex-basis: 25%;
+    display: flex;
+}
+
+#total {
+    flex: 1;
+    text-align: center;
+}
+
+#sign-desc {
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.container {
+    position: relative;
+    margin: 0 auto;
+}
+
+    .container .image_bk {
+        vertical-align: middle;
+        opacity:0.1;
+    }
+
+    .container .reciept_container {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 20px;
+    }
+
+.kt-footer .kt-footer__copyright {
+    /* display: -webkit-box; */
+    display: -ms-flexbox;
+    /* display: flex; */
+    /* margin: 0; */
+    /* padding: 0 1.25rem 0 0; */
+    /* font-size: 1rem; */
+    /*font-weight: 400;*/
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    color: #74788d;
+}

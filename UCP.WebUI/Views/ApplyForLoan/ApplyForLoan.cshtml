@@ -1,0 +1,93 @@
+﻿@using UCP.Domain.Enum
+@model UCP.Application.Dto.ApplyForLoanDto
+@{
+	ViewData["Title"] = "Apply For Loan";
+	Layout = "_DashboardLayout";
+}
+@section Styles{
+	<link rel="stylesheet" href="~/assets/plugins/select2/css/select2.min.css">
+	<link rel="stylesheet" href="~/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+}
+
+	<section class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-6">
+					<form asp-action="ApplyForLoan">
+						<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+						<input type="hidden" asp-for="Id" />
+
+						<div class="form-row">
+							<div class="col">
+								<label asp-for="LoanAmount" class="control-label"></label>
+								<input asp-for="LoanAmount" class="form-control" required />
+								<span asp-validation-for="LoanAmount" class="text-danger"></span>
+							</div>
+							<div class="col">
+								<label asp-for="LoanTerm" class="control-label"></label>
+								<input asp-for="LoanTerm" class="form-control" required />
+								<span asp-validation-for="LoanTerm" class="text-danger"></span>
+							</div>
+						</div>
+						
+						<div class="form-row">
+							<div class="col">
+								<label asp-for="LenderName" class="control-label"></label>
+								<input asp-for="LenderName" class="form-control" required />
+								<span asp-validation-for="LenderName" class="text-danger"></span>
+							</div>
+							<div class="col">
+								<label asp-for="Purpose" class="control-label"></label>
+								<input asp-for="Purpose" class="form-control" required />
+								<span asp-validation-for="Purpose" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col">
+								<select type="text" class="form-control" id="lgSelect" placeholder="Choose a loan"
+									name="LoanName" required="required"
+									asp-items="@(new SelectList(@ViewBag.loanList,"Id","Name"))">
+									<option>Select loan</option>
+								</select>
+							</div>
+						</div>
+							
+						<div class="form-row">
+							<div class="col">
+								<label asp-for="LoanTerm" class="control-label"></label>
+								<input asp-for="LoanTerm" class="form-control" required />
+								<span asp-validation-for="LoanTerm" class="text-danger"></span>
+							</div>
+							<div class="col">
+								<label asp-for="Email" class="control-label"></label>
+								<input asp-for="Email" class="form-control" required />
+								<span asp-validation-for="Email" class="text-danger"></span>
+							</div>
+						</div>
+
+
+						<br />
+						<div class="form-row">
+							<div class="kt-form__actions">
+								<button class="btn btn-success"
+									type="submit">
+									Apply
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	@section Scripts
+	{
+	<script src="~/assets/plugins/select2/js/select2.full.js"></script>
+	<script src="~/yassets/assets/js/pages/create-new-staff/submit-form.js"></script>
+	<script src="~/yassets/assets/initialize-select-lists.js"></script>
+
+	<script>
+		setupCategorySelect('@Url.Action("LoadAllLoan", "SelectListUtility")');
+	</script>
+}

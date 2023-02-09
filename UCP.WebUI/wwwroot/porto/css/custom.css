@@ -1,0 +1,21 @@
+/* Add here all your CSS customizations */
+
+.btn-danger {
+    background-color: #FE423D !important;
+    border-color: none !important;
+    border-radius: 0;
+    color: #FFF;
+}
+
+    .btn-danger:hover {
+        background-color: #e25663;
+        border-color: none !important;
+        color: #FFF;
+    }
+
+.lab {
+    height: 16rem;
+    max-width: 100%;
+    display: block;
+    vertical-align: middle
+}

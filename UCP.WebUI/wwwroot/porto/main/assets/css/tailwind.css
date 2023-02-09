@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .section-1 {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8
+  }
+
+  .nav-link {
+    @apply px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200
+  }
+
+  .nav-sub-link {
+    @apply block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none
+  }
+
+  .btn {
+    @apply inline-block text-white px-6 py-3 rounded bg-accent-200 hover:bg-accent-400
+  }
+
+  .form-label {
+    @apply block text-gray-700 text-sm font-bold mb-2
+  }
+
+  .text-input {
+    @apply shadow appearance-none border rounded w-full py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none
+  }
+
+  .page-title {
+    @apply text-2xl font-bold mb-6
+  }
+
+  .card-a {
+    @apply mb-4 p-4 bg-white shadow-lg rounded-md overflow-hidden
+  }
+
+  .card-title {
+    @apply text-xl font-semibold mb-4 text-gray-600
+  }
+}

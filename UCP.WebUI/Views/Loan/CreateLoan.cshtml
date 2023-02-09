@@ -1,0 +1,60 @@
+﻿@model UCP.Application.Dto.LoanDto
+@{
+	ViewData["Title"] = "Create Loan";
+	Layout = "_DashboardLayout";
+}
+@section Styles{
+	<link rel="stylesheet" href="~/assets/plugins/select2/css/select2.min.css">
+	<link rel="stylesheet" href="~/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+}
+
+	<section class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-6">
+					<form asp-action="CreateLoan">
+						<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+						<input type="hidden" asp-for="Id" />
+
+						<div class="form-row">
+							<div class="col">
+								<label asp-for="LoanName" class="control-label"></label>
+								<input asp-for="LoanName" class="form-control" required />
+								<span asp-validation-for="LoanName" class="text-danger"></span>
+							</div>
+							<div class="col">
+								<label asp-for="InterestRate" class="control-label"></label>
+								<input asp-for="InterestRate" class="form-control" required />
+								<span asp-validation-for="InterestRate" class="text-danger"></span>
+							</div>
+						</div>
+
+						<br />
+						<div class="form-row">
+							<div class="kt-form__actions">
+								<button class="btn btn-success"
+									type="submit">
+									Create
+								</button>
+								&nbsp;
+								<a class="btn btn-primary" asp-action="ViewLoan">Return to Loan List</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	@section Scripts
+	{
+	<script src="~/assets/plugins/select2/js/select2.full.js"></script>
+	<script src="~/yassets/assets/js/pages/create-new-staff/submit-form.js"></script>
+	<script src="~/yassets/assets/initialize-select-lists.js"></script>
+
+	<script>
+		setupCategorySelect('@Url.Action("LoadAllCategories", "SelectListUtility")');
+		setupParameterSelect('@Url.Action("LoadAllParameters", "SelectListUtility")');
+		setupQualityControlSelect('@Url.Action("LoadAllQualityControls", "SelectListUtility")');
+	</script>
+}

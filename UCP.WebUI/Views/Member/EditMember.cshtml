@@ -1,0 +1,94 @@
+﻿@model UCP.Application.Dto.MemberDto
+@{
+	ViewData["Title"] = "Edit Member";
+	Layout = "_DashboardLayout";
+}
+@section Styles{
+<link rel="stylesheet" href="~/assets/plugins/select2/css/select2.min.css">
+<link rel="stylesheet" href="~/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+}
+
+<section class="content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6">
+				<form asp-action="EditMember" asp-route-id="@Model.Id">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<input type="hidden" asp-for="Id" />
+					<div class="form-group">
+						<label asp-for="UserName" class="control-label"></label>
+							<input asp-for="UserName" class="form-control" value="@Model.UserName" />
+							<span asp-validation-for="UserName" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+							<label asp-for="Surname" class="control-label"></label>
+							<input asp-for="Surname" class="form-control" required value="@Model.Surname" />
+							<span asp-validation-for="Surname" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+							<label asp-for="PhoneNumber" class="control-label"></label>
+							<input asp-for="PhoneNumber" class="form-control" required value="@Model.PhoneNumber" />
+							<span asp-validation-for="PhoneNumber" class="text-danger"></span>
+					</div>
+
+						<div class="form-group">
+							<label asp-for="OtherName" class="control-label"></label>
+							<input asp-for="OtherName" class="form-control" required value="@Model.PhoneNumber" />
+							<span asp-validation-for="OtherName" class="text-danger"></span>
+						</div>
+
+					<div class="form-group">
+							<label asp-for="Email" class="control-label"></label>
+							<input asp-for="Email" class="form-control" required value="@Model.Email" />
+							<span asp-validation-for="Email" class="text-danger"></span>
+					</div>
+
+					@*<div class="col">
+								<label asp-for="Gender" class="control-label"></label>
+								<select class="form-control select gender"
+									placeholder="Choose a gender"
+									required="required"
+									name="CategoryId">
+								</select>
+								<span asp-validation-for="Gender" class="text-danger"></span>
+							</div>*@
+					
+
+					<div class="form-row">
+						<div class="kt-form__actions">
+							<button class="btn btn-success"
+									type="submit">
+								Save Changes
+							</button>
+							&nbsp;
+							&nbsp;
+							<a class="btn btn-primary"
+							   asp-action="ViewMemberDetail"
+							   asp-route-id="@Model.Id">
+								Return to Details
+							</a>
+							&nbsp;
+							<a class="btn btn-primary"
+							   asp-action="ViewMember">
+								Return to member List
+							</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</div>
+</section>
+@section Scripts
+	{
+	<script src="~/assets/plugins/select2/js/select2.full.js"></script>
+	<script src="~/yassets/assets/js/pages/create-new-staff/submit-form.js"></script>
+	<script src="~/yassets/assets/initialize-select-lists.js"></script>
+
+	<script>
+		setupFeatureSelect('@Url.Action("LoadAllFeatures", "SelectListUtility")');
+	</script>
+}

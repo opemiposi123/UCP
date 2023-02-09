@@ -1,0 +1,79 @@
+﻿@model List<UCP.Application.Dto.LoanDto>
+@{
+	ViewData["Title"] = "Loan List";
+	Layout = "_DataTableDashboardLayout";
+}
+
+<section class="content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+
+				<div class="card">
+					<div class="card-header">
+						<h3 class="card-title">Total Loan (@Model.Count)</h3>
+
+							<div class="card-tools">
+							<a href="@Url.Action("CreateLoan","Loan")" class="btn btn-tool">
+								<i class="fas fa-plus">Add Loan</i>
+							</a>
+						</div>
+					</div>
+					<!-- /.card-header -->
+					<div class="card-body">
+						<table id="example1" class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>LoanName</th>
+									<th>InterestRate</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model)
+								{
+									<tr>
+										<td>@item.LoanName</td>
+										<td>@item.InterestRate</td>
+										<td>
+											<a asp-action="ViewLoanDetail" asp-controller="Loan" asp-route-id="@item.Id" class="btn btn-success">View</a>
+										</td>
+
+									</tr>
+								}
+							</tbody>
+							<tfoot>
+								<tr>
+									<th>LoanName</th>
+									<th>InterestRate</th>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+</section>
+
+@section scripts{
+<script>
+	$(function() {
+		$("#example1").DataTable({
+			"responsive": true, "lengthChange": false, "autoWidth": false,
+			"buttons": ["csv", "excel", "pdf", "print"]
+		}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+		$('#example2').DataTable({
+			"paging": true,
+			"lengthChange": false,
+			"searching": false,
+			"ordering": true,
+			"info": true,
+			"autoWidth": false,
+			"responsive": true,
+		});
+	});
+</script>
+}

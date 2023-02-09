@@ -1,0 +1,65 @@
+﻿@model UCP.Application.Dto.LoanDto
+@{
+	ViewData["Title"] = "Edit Loan";
+	Layout = "_DashboardLayout";
+}
+@section Styles{
+	<link rel="stylesheet" href="~/assets/plugins/select2/css/select2.min.css">
+	<link rel="stylesheet" href="~/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+}
+
+	<section class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-6">
+					<form asp-action="EditLoan" asp-route-id="@Model.Id">
+						<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+						<input type="hidden" asp-for="Id" />
+						<div class="form-group">
+							<label asp-for="LoanName" class="control-label"></label>
+							<input asp-for="LoanName" class="form-control" value="@Model.LoanName" />
+							<span asp-validation-for="LoanName" class="text-danger"></span>
+						</div>
+
+						<div class="form-group">
+							<label asp-for="InterestRate" class="control-label"></label>
+							<input asp-for="InterestRate" class="form-control" required value="@Model.InterestRate" />
+							<span asp-validation-for="InterestRate" class="text-danger"></span>
+						</div>
+
+						<div class="form-row">
+							<div class="kt-form__actions">
+								<button class="btn btn-success"
+									type="submit">
+									Save Changes
+								</button>
+								&nbsp;
+								&nbsp;
+								<a class="btn btn-primary"
+							   asp-action="ViewLoanDetail"
+							   asp-route-id="@Model.Id">
+									Return to Details
+								</a>
+								&nbsp;
+								<a class="btn btn-primary"
+							   asp-action="ViewLoan">
+									Return to Loan List
+								</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	@section Scripts
+	{
+	<script src="~/assets/plugins/select2/js/select2.full.js"></script>
+	<script src="~/yassets/assets/js/pages/create-new-staff/submit-form.js"></script>
+	<script src="~/yassets/assets/initialize-select-lists.js"></script>
+
+	<script>
+		setupFeatureSelect('@Url.Action("LoadAllFeatures", "SelectListUtility")');
+	</script>
+}

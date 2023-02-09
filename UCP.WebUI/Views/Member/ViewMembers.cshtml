@@ -1,0 +1,88 @@
+﻿@model List<UCP.Application.Dto.MemberDto>
+@{
+	ViewData["Title"] = "Member List";
+	Layout = "_DataTableDashboardLayout";
+}
+
+<section class="content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+
+				<div class="card">
+					<div class="card-header">
+						<h3 class="card-title">Total Members (@Model.Count)</h3>
+
+							<div class="card-tools">
+							<a href="@Url.Action("CreateMember","Member")" class="btn btn-tool">
+								<i class="fas fa-plus">Add Member</i>
+							</a>
+						</div>
+					</div>
+					<!-- /.card-header -->
+					<div class="card-body">
+						<table id="example1" class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>Username</th>
+									<th>Surnameb</th>
+									<th>Email</th>
+									<th>Gender</th>
+									<th>AccountNumber</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model)
+								{
+									<tr>
+										<td>@item.UserName</td>
+										<td>@item.Surname</td>
+										<td>@item.Email</td>
+										<td>@item.Gender</td>
+										<td>@item.AccountNumber</td>
+										<td>
+											<a asp-action="ViewMemberDetail" asp-route-id="@item.Id" class="btn btn-success">View</a>
+										</td>
+
+									</tr>
+								}
+							</tbody>
+							<tfoot>
+								<tr>
+									<th>UserName</th>
+									<th>Name</th>
+									<th>Email</th>
+									<th>Gender</th>
+									<th>AcountNumber</th>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+</section>
+
+@section scripts{
+<script>
+	$(function() {
+		$("#example1").DataTable({
+			"responsive": true, "lengthChange": false, "autoWidth": false,
+			"buttons": ["csv", "excel", "pdf", "print"]
+		}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+		$('#example2').DataTable({
+			"paging": true,
+			"lengthChange": false,
+			"searching": false,
+			"ordering": true,
+			"info": true,
+			"autoWidth": false,
+			"responsive": true,
+		});
+	});
+</script>
+}

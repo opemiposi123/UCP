@@ -1,0 +1,103 @@
+﻿@model UCP.Application.Dto.MemberDto
+
+@{
+	ViewData["Title"] = "Member Details";
+	Layout = "_DashboardLayout";
+}
+
+
+<section class="content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="card">
+					<div class="card-header">
+						<h3 class="card-title">
+							<i class="fas fa-text-width"></i>
+							Member Details
+						</h3>
+					</div>
+					<!-- /.card-header -->
+					<div class="card-body">
+						<dl class="row">
+							<dt class="col-sm-4">UserName</dt>
+							<dd class="col-sm-8">@Model.UserName</dd>
+							<dt class="col-sm-4">Surname</dt>
+							<dd class="col-sm-8">@Model.Surname</dd>
+							<dt class="col-sm-4">Othername</dt>
+							<dd class="col-sm-8">@Model.OtherName</dd>
+							<dt class="col-sm-4">Email</dt>
+							<dd class="col-sm-8">@Model.Email</dd>
+							<dt class="col-sm-4">Gender</dt>
+							<dd class="col-sm-8">@Model.Gender</dd>
+							<dt class="col-sm-4">PhoneNumber</dt>
+							<dt class="col-sm-4">@Model.PhoneNumber</dt>
+							<dt class="col-sm-4">Account Number</dt>
+							<dt class="col-sm-4">@Model.AccountNumber</dt>
+							<dt class="col-sm-4">DateJoined</dt>
+							<dt class="col-sm-4">@Model.Datejoined</dt>
+							<dt class="col-sm-4">CreatedBy</dt>
+							<dt class="col-sm-4">@Model.CreateBy</dt>
+							<dt class="col-sm-4">ModifiedBy</dt>
+							<dt class="col-sm-4">@Model.ModifiedBy</dt>
+							<dt class="col-sm-4">ModifiedDate</dt>
+							<dt class="col-sm-4">@Model.ModifiedDate</dt>
+							<dt class="col-sm-4">DateOfBirth</dt>
+							<dt class="col-sm-4">@Model.DateOfBirth</dt>
+
+						</dl>
+
+						<div class="kt-form__actions">
+							<a class="btn btn-success" asp-action="EditMember" asp-route-id="@Model.Id">Edit Member</a>
+							
+							&nbsp;
+							<a class="btn btn-primary" asp-action="ViewMembers">Return to Member List</a>
+						</div>
+					</div>
+					<!-- /.card-body -->
+					<form asp-action="DeleteMember" asp-route-id="@Model.Id">
+						<button id="deleteButton"
+								class="kt-hidden"
+								hidden="hidden"
+								type="button"></button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+@section Scripts
+	{
+	<script src="~/yassets/assets/js/pages/create-new-staff/submit-form.js"></script>
+	<script>
+		function confirmDelete() {
+			swal.fire({
+				title: 'Do you know what you\'re doing?',
+				text: "This will delete the Product",
+				type: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Yes, delete it!'
+			}).then((result) => {
+				if (result.value) {
+					submitFormAsync($("#deleteButton"), false);
+					$('.kt-form').block({
+						animate: true,
+						message: '<div class="spinner"> <div class="double-bounce1"></div><div class="double-bounce2"></div></div>',
+						css: {
+							border: 'none',
+							padding: '2px',
+							backgroundColor: 'none'
+						},
+						overlayCSS: {
+							backgroundColor: '#1abc9c',
+							opacity: 0.05,
+							cursor: 'wait'
+						}
+					});
+				}
+			});
+		}
+	</script>
+}
