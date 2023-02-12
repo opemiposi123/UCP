@@ -27,18 +27,20 @@ namespace UCP.WebUI.Controllers
             return View(instances);
         }
 
-        [HttpGet("student/create")]
+        [HttpGet("member/create")]
         [Authorize(Roles = "SuperAdmin,Admin")]
         public IActionResult CreateMember() =>
          View();
 
-        [HttpPost("student/create")]
+        [HttpPost("member/create")]
         [Authorize(Roles = "SuperAdmin,Admin")]
         public async Task<IActionResult> CreateMember([FromForm] MemberDto member)
         {
             try
             {
                 var response = await _memberService.CreateMember(member);
+                TempData["success"] = "member created successfully";
+
                 return RedirectToAction("ViewMembers", "Member");
             }
             catch
@@ -91,27 +93,9 @@ namespace UCP.WebUI.Controllers
             try
             {
                 var response = await _memberService.UpdateMember(id, member);
+                    TempData["success"] = "member updated successfully";
+                return RedirectToAction("ViewMembers", "Member");
 
-                if (response.Status)
-                {
-                    return Ok(
-                        new
-                        {
-                            status = "success",
-                            response.Message,
-                            redirectUri = Url.Action("ViewMembers",
-                                                     new
-                                                     {
-                                                         id = response.Id
-                                                     })
-                        });
-                }
-
-                return Ok(new
-                {
-                    status = "error",
-                    response.Message
-                });
             }
             catch
             {
@@ -130,22 +114,8 @@ namespace UCP.WebUI.Controllers
             try
             {
                 var response = await _memberService.DeleteMember(id);
-                if (response.Status)
-                {
-                    return Ok(
-                        new
-                        {
-                            status = "success",
-                            response.Message,
-                            redirectUri = Url.Action("ViewMembers")
-                        });
-                }
-
-                return Ok(new
-                {
-                    status = "error",
-                    response.Message
-                });
+                    TempData["success"] = "member deleted successfully";
+                return RedirectToAction("ViewMembers", "Member");
             }
             catch
             {

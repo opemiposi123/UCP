@@ -18,11 +18,11 @@ namespace UCP.WebUI.Controllers
             _loanService = loanService;
         }
         
-        [HttpGet("applyforloan")]
+        [HttpGet("applyforloan/apply")]
         public async Task<IActionResult> ApplyForLoan()
         {
             var loanList = await _loanService.LoadAllLoan();
-            ViewBag.loanList = loanList;
+            ViewBag.loanLists = loanList;
             return View();
         }
 

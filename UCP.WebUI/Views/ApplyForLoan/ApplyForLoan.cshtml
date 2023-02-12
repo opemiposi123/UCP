@@ -44,9 +44,9 @@
 						</div>
 						<div class="form-row">
 							<div class="col">
-								<select type="text" class="form-control" id="lgSelect" placeholder="Choose a loan"
+								<select type="text" class="form-control"  placeholder="Choose a loan"
 									name="LoanName" required="required"
-									asp-items="@(new SelectList(@ViewBag.loanList,"Id","Name"))">
+									asp-items="@(new SelectList(@ViewBag.loanLists,"Id","Name"))">
 									<option>Select loan</option>
 								</select>
 							</div>
