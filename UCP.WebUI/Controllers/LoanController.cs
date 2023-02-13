@@ -96,7 +96,7 @@ namespace UCP.WebUI.Controllers
                         {
                             status = "success",
                             response.Message,
-                            redirectUri = Url.Action("ViewLoans",
+                            redirectUri = Url.Action("ViewLoan",
                                                      new
                                                      {
                                                          id = response.Id

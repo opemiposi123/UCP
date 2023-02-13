@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +11,9 @@ namespace UCP.Domain.Entity
 {
     public class ApplyForLoan : BaseEntity
     {
+        [Column(TypeName = "decimal(18,2)")]
         public decimal LoanAmount { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal LoanAmountPlusInterestRate { get; set; }
         public string LoanName { get; set; }
         public int LoanTerm { get; set; }
@@ -22,5 +26,6 @@ namespace UCP.Domain.Entity
         public DateTime DateOfBirth { get; set; }
         public Gender Gender { get; set; }
         public Collateral Collateral { get; set; }
+        public Guid CollateralId{ get; set; }
     }
 }

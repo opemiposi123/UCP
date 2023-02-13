@@ -11,9 +11,18 @@ namespace Identity.Models.Domain
                 
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Loan>()
+                .Property(p => p.InterestRate)
+                .HasColumnType("decimal(18,2)");
+        }
+
         public DbSet<Member> Members { get; set; }
         public DbSet<Loan> Loans { get; set; }
         public DbSet<ApplyForLoan> ApplyForLoans { get; set; }
+        public DbSet<Collateral> Collaterals { get; set; }
 
     }
 }
