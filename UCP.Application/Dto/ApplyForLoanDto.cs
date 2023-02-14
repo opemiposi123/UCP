@@ -29,6 +29,7 @@ namespace UCP.Application.Dto
         public DateTime DateOfBirth { get; set; }
         public Gender Gender { get; set; }
         public Collateral Collateral { get; set; }
+        public Guid CollateralId { get; set; }
 
     }
 }

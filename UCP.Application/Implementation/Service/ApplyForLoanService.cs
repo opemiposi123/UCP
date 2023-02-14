@@ -55,7 +55,8 @@ namespace UCP.Application.Implementation.Service
                     Gender = request.Gender,
                     Email = request.Email,
                     DateOfBirth = request.DateOfBirth,
-                    Collateral = request.Collateral
+                    Collateral = request.Collateral,
+                    CollateralId = request.CollateralId,
                 };
 
                 var result = _repository.ApplyAsync(applyForLoan);
