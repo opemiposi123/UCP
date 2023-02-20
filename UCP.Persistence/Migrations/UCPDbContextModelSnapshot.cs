@@ -203,6 +203,9 @@ namespace UCP.Persistence.Migrations
                     b.Property<int>("LoanTerm")
                         .HasColumnType("int");
 
+                    b.Property<string>("MemberIdId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("ModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -218,6 +221,8 @@ namespace UCP.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CollateralId");
+
+                    b.HasIndex("MemberIdId");
 
                     b.ToTable("ApplyForLoans");
                 });
@@ -285,6 +290,9 @@ namespace UCP.Persistence.Migrations
                     b.Property<string>("AccountNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid?>("ApplyForLoanId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -308,6 +316,9 @@ namespace UCP.Persistence.Migrations
 
                     b.Property<int>("Gender")
                         .HasColumnType("int");
+
+                    b.Property<Guid>("LoanId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -357,6 +368,10 @@ namespace UCP.Persistence.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ApplyForLoanId");
+
+                    b.HasIndex("LoanId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -428,7 +443,33 @@ namespace UCP.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("UCP.Domain.Entity.Member", "MemberId")
+                        .WithMany()
+                        .HasForeignKey("MemberIdId");
+
                     b.Navigation("Collateral");
+
+                    b.Navigation("MemberId");
+                });
+
+            modelBuilder.Entity("UCP.Domain.Entity.Member", b =>
+                {
+                    b.HasOne("UCP.Domain.Entity.ApplyForLoan", null)
+                        .WithMany("Member")
+                        .HasForeignKey("ApplyForLoanId");
+
+                    b.HasOne("UCP.Domain.Entity.Loan", "Loan")
+                        .WithMany()
+                        .HasForeignKey("LoanId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Loan");
+                });
+
+            modelBuilder.Entity("UCP.Domain.Entity.ApplyForLoan", b =>
+                {
+                    b.Navigation("Member");
                 });
 #pragma warning restore 612, 618
         }

@@ -132,6 +132,7 @@ namespace UCP.Application.Implementation.Service
                     std.LoanName = request.LoanName;
 
                     _repository.UpdateAsyncForLoan(std);
+                    _repository.SaveChangesAsync();
                 }
                 else
                 {

@@ -25,11 +25,6 @@ namespace UCP.Application.Dto
         public DateTime? LoanEndDate { get; set; }
         public PaymentFrequency PaymentFrequency { get; set; }
         public string? Purpose { get; set; }
-        public string LenderName { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public Gender Gender { get; set; }
-        public Collateral Collateral { get; set; }
-        public Guid CollateralId { get; set; }
 
     }
 }

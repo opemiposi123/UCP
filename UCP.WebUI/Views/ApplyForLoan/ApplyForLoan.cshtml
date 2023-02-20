@@ -32,9 +32,6 @@
 						
 						<div class="form-row">
 							<div class="col">
-								<label asp-for="LenderName" class="control-label"></label>
-								<input asp-for="LenderName" class="form-control" required />
-								<span asp-validation-for="LenderName" class="text-danger"></span>
 							</div>
 							<div class="col">
 								<label asp-for="Purpose" class="control-label"></label>
@@ -49,6 +46,11 @@
 									asp-items="@(new SelectList(@ViewBag.loanLists,"Id","LoanName"))">
 									<option>Select loan</option>
 								</select>
+							</div>
+							<div class="col">
+								<label asp-for="PaymentFrequency" class="control-label"></label>
+								<select asp-for="PaymentFrequency" class="form-control" asp-items="Html.GetEnumSelectList<UCP.Domain.Enum.PaymentFrequency>()"></select>
+								<span asp-validation-for="PaymentFrequency" class="text-danger"></span>
 							</div>
 						</div>
 							

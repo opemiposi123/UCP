@@ -17,5 +17,7 @@ namespace UCP.Domain.Entity
         public DateTime DateOfBirth { get; set; }
         public string? AccountNumber { get; set; }
         public string? PhoneNumber { get; set; }
-    }
+        public ApplyForLoan ApplyForLoan { get; set; }
+        public Guid ApplyForLoanId { get; set; }
+    } 
 }

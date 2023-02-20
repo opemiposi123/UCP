@@ -27,6 +27,7 @@ namespace UCP.Persistence.Repository
         {
             return await _dbContext.Loans.Select(x => new LoanDto
             {
+                Id = x.Id,
                 LoanName = x.LoanName,
                 InterestRate = x.InterestRate,
             }).ToListAsync();
@@ -37,6 +38,7 @@ namespace UCP.Persistence.Repository
                             .Where(x => x.Id == id)
                             .Select(x => new LoanDto
                             {
+                                Id = x.Id,
                                 LoanName = x.LoanName,
                                 Datejoined = x.Datejoined,
                                 InterestRate = x.InterestRate,

@@ -50,13 +50,8 @@ namespace UCP.Application.Implementation.Service
                     PaymentFrequency = request.PaymentFrequency,
                     LoanName = request.LoanName,
                     LoanTerm = request.LoanTerm,
-                    LenderName = request.LenderName,
                     Purpose = request.Purpose,
-                    Gender = request.Gender,
                     Email = request.Email,
-                    DateOfBirth = request.DateOfBirth,
-                    Collateral = request.Collateral,
-                    CollateralId = request.CollateralId,
                 };
 
                 var result = _repository.ApplyAsync(applyForLoan);

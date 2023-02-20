@@ -22,10 +22,12 @@ namespace UCP.Domain.Entity
         public DateTime? LoanEndDate { get; set; } 
         public PaymentFrequency PaymentFrequency { get; set; }
         public string? Purpose { get; set; }
-        public string LenderName { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public Gender Gender { get; set; }
-        public Collateral Collateral { get; set; }
-        public Guid CollateralId{ get; set; }
+        //public Collateral Collateral { get; set; }
+        //public Guid CollateralId{ get; set; }
+        //public Member MemberId { get; set; }
+        //[NotMapped]
+        //public ICollection<Member> Member { get; set; } = new HashSet<Member>();
+        public Member Member { get; set; }
+        public Member MemberId { get; set; }
     }
 }

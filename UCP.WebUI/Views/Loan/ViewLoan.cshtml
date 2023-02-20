@@ -24,6 +24,7 @@
 						<table id="example1" class="table table-bordered table-striped">
 							<thead>
 								<tr>
+									<th>Id</th>
 									<th>LoanName</th>
 									<th>InterestRate</th>
 								</tr>
@@ -32,6 +33,7 @@
 								@foreach (var item in Model)
 								{
 									<tr>
+											<td>@item.Id</td>
 										<td>@item.LoanName</td>
 										<td>@item.InterestRate</td>
 										<td>
@@ -43,6 +45,7 @@
 							</tbody>
 							<tfoot>
 								<tr>
+									<th>Id</th>
 									<th>LoanName</th>
 									<th>InterestRate</th>
 								</tr>

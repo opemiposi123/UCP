@@ -31,7 +31,6 @@ namespace UCP.Persistence.Repository
             {
                 LoanName = x.LoanName,
                 LoanTerm = x.LoanTerm,
-                LenderName = x.LenderName,
                 LoanAmount = x.LoanAmount
             }).ToListAsync();
         }
@@ -43,12 +42,10 @@ namespace UCP.Persistence.Repository
                             {
                                 LoanName = x.LoanName,
                                 LoanTerm = x.LoanTerm,
-                                LenderName = x.LenderName,
                                 Email = x.Email,
                                 LoanAmount = x.LoanAmount,
                                 Purpose = x.Purpose,
                                 PaymentFrequency = x.PaymentFrequency,
-                                Gender = x.Gender
 
                             })
                             .FirstOrDefaultAsync();

@@ -22,7 +22,6 @@ namespace Identity.Models.Domain
         public DbSet<Member> Members { get; set; }
         public DbSet<Loan> Loans { get; set; }
         public DbSet<ApplyForLoan> ApplyForLoans { get; set; }
-        public DbSet<Collateral> Collaterals { get; set; }
 
     }
 }

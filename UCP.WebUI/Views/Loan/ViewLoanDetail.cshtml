@@ -20,8 +20,11 @@
 					<!-- /.card-header -->
 					<div class="card-body">
 						<dl class="row">
+							<dt class="col-sm-4">Id</dt>
+							<dd class="col-sm-8">@Model.Id</dd>
 							<dt class="col-sm-4">LoanName</dt>
 							<dd class="col-sm-8">@Model.LoanName</dd>
+
 							<dt class="col-sm-4">InterestRate</dt>
 							<dd class="col-sm-8">@Model.InterestRate</dd>
 							<dt class="col-sm-4">ModifieBy</dt>
@@ -31,18 +34,23 @@
 
 						<div class="kt-form__actions">
 							<a class="btn btn-success" asp-action="EditLoan" asp-route-id="@Model.Id">Edit Loan</a>
-							
-							&nbsp;
+							 &nbsp;
 							<a class="btn btn-primary" asp-action="ViewLoan">Return to Loan List</a>
+								&nbsp;
+								<hr />
+								<form asp-action="DeleteLoan" asp-route-id="@Model.Id">
+									<button type="submit" class="btn btn-danger">Delete loan</button>
+								</form>
+								
 						</div>
 					</div>
-					<!-- /.card-body -->
-					<form asp-action="DeleteLoan" asp-route-id="@Model.Id">
+				
+@*					<form asp-action="DeleteLoan" asp-route-id="@Model.Id">
 						<button id="deleteButton"
 								class="kt-hidden"
 								hidden="hidden"
 								type="button"></button>
-					</form>
+					</form>*@
 				</div>
 			</div>
 		</div>

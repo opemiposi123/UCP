@@ -88,27 +88,7 @@ namespace UCP.WebUI.Controllers
             try
             {
                 var response = await _loanService.UpdateLoan(id, loan);
-
-                if (response.Status)
-                {
-                    return Ok(
-                        new
-                        {
-                            status = "success",
-                            response.Message,
-                            redirectUri = Url.Action("ViewLoan",
-                                                     new
-                                                     {
-                                                         id = response.Id
-                                                     })
-                        });
-                }
-
-                return Ok(new
-                {
-                    status = "error",
-                    response.Message
-                });
+                return RedirectToAction("ViewLoan", "Loan");
             }
             catch
             {
