@@ -29,7 +29,7 @@ namespace UCP.Persistence.Repository
         {
             return await _dbContext.ApplyForLoans.Select(x => new ApplyForLoanDto
             {
-                LoanName = x.LoanName,
+                
                 LoanTerm = x.LoanTerm,
                 LoanAmount = x.LoanAmount
             }).ToListAsync();
@@ -40,9 +40,7 @@ namespace UCP.Persistence.Repository
                             .Where(x => x.Id == id)
                             .Select(x => new ApplyForLoanDto
                             {
-                                LoanName = x.LoanName,
                                 LoanTerm = x.LoanTerm,
-                                Email = x.Email,
                                 LoanAmount = x.LoanAmount,
                                 Purpose = x.Purpose,
                                 PaymentFrequency = x.PaymentFrequency,
@@ -54,9 +52,6 @@ namespace UCP.Persistence.Repository
         {
             return await _dbContext.ApplyForLoans.Where(s => s.Id == id).FirstOrDefaultAsync();
         }
-        public async Task<ApplyForLoan> GetLoanApplicantByName(string loanName)
-        {
-            return await _dbContext.ApplyForLoans.Where(s => s.LoanName == loanName).FirstOrDefaultAsync();
-        }
+ 
     }
 }

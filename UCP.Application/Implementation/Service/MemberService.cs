@@ -106,7 +106,7 @@ namespace UCP.Application.Implementation.Service
             {
                 return new CreateResponseModel(false,
                                              "",
-                                              "No such student exists");
+                                              "No such user exists");
             }
 
             try
@@ -118,7 +118,7 @@ namespace UCP.Application.Implementation.Service
             {
                 return new CreateResponseModel(false,
                                               "",
-                                              "Could not delete student..");
+                                              "Could not delete user..");
             }
             return new CreateResponseModel(true,
                                               "",

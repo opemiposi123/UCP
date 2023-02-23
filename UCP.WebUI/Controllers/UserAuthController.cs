@@ -23,8 +23,8 @@ namespace UCP.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> Login([FromForm]LoginModelDto model)
         {
-            //if (!ModelState.IsValid)
-            //    return View(model);
+            if (!ModelState.IsValid)
+                return View(model);
             var result = await _userAuthenticationService.LoginAsync(model);
             if (result.StatusCode == 1)
             {

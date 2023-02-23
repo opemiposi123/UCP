@@ -46,17 +46,14 @@ namespace UCP.Application.Implementation.Service
                 {
                     Id = new Guid(),
                     LoanAmount = request.LoanAmount,
-                    //LoanAmountPlusInterestRate = loanProfit,
                     PaymentFrequency = request.PaymentFrequency,
-                    LoanName = request.LoanName,
                     LoanTerm = request.LoanTerm,
                     Purpose = request.Purpose,
-                    Email = request.Email,
                 };
 
                 var result = _repository.ApplyAsync(applyForLoan);
 
-                var getAllLoans = _loanRepository.GetLoanByName(applyForLoan.LoanName);
+                var getAllLoans = _loanRepository.GetLoanById(applyForLoan.LoanId);
                 var loanProfit = getAllLoans.InterestRate * applyForLoan.LoanAmount;
                 var monthOrWeek = (int)applyForLoan.PaymentFrequency;
                 if (monthOrWeek == 1)
@@ -98,7 +95,7 @@ namespace UCP.Application.Implementation.Service
             catch(Exception)
             {
                 status.StatusCode = 0;
-                status.Message = "Loan Applied failed";
+                status.Message = "Cannot Apply for loan";
             }
                     status.StatusCode = 1;
                     status.Message = "Loan Applied successfuly";

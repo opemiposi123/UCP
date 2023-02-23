@@ -17,14 +17,11 @@ namespace UCP.Application.Dto
         public string? CreateBy { get; set; }
         public DateTime? DateCreated { get; set; }
         public decimal LoanAmount { get; set; }
-        public decimal LoanAmountPlusInterestRate { get; set; }
-        public string LoanName { get; set; }
+        public Guid LoanId { get; set; }
         public int LoanTerm { get; set; }
-        public string Email { get; set; }
-        public DateTime? LoanStartDate { get; set; }
-        public DateTime? LoanEndDate { get; set; }
         public PaymentFrequency PaymentFrequency { get; set; }
         public string? Purpose { get; set; }
+
 
     }
 }

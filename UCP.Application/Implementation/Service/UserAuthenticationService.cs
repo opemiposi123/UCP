@@ -47,7 +47,7 @@ namespace UCP.Application.Implementation.Service
                     return status;
                 }
 
-                var signInResult = await _signInManager.PasswordSignInAsync(user, model.Password, false, true);
+                var signInResult = await _signInManager.PasswordSignInAsync(user, model.Password, true, true);
                 if (signInResult.Succeeded)
                 {
                     var userRoles = await _userManager.GetRolesAsync(user);

@@ -12,6 +12,6 @@ namespace UCP.Domain.Entity
         public string LoanName { get; set; }
         [Column(TypeName = "decimal(18,2)")]
         public decimal InterestRate { get; set; }
-
+        public ICollection<ApplyForLoan> LoanApplicant { get; set; } = new HashSet<ApplyForLoan>();
     }
 }

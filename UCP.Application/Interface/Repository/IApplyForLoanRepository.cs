@@ -12,7 +12,6 @@ namespace UCP.Application.Interface.Repository
     {
         List<ApplyForLoan> GetAllLoanApplicant();
         Task<ApplyForLoan> GetLoanApplicantById(Guid id);
-        Task<ApplyForLoan> GetLoanApplicantByName(string name);
         Task<List<ApplyForLoanDto>> GetAllLoanApplicantDto();
         Task<ApplyForLoanDto?> LoadLoanApplicantDetail(Guid id);
     }

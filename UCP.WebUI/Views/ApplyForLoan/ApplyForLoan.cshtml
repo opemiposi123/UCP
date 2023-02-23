@@ -31,9 +31,7 @@
 						</div>
 						
 						<div class="form-row">
-							<div class="col">
-							</div>
-							<div class="col">
+							<div class="col-6">
 								<label asp-for="Purpose" class="control-label"></label>
 								<input asp-for="Purpose" class="form-control" required />
 								<span asp-validation-for="Purpose" class="text-danger"></span>
@@ -42,32 +40,17 @@
 						<div class="form-row">
 							<div class="col">
 								<select type="text" class="form-control"  placeholder="Choose a loan"
-									name="LoanName" required="required"
+									name="LoanId" required="required"
 									asp-items="@(new SelectList(@ViewBag.loanLists,"Id","LoanName"))">
 									<option>Select loan</option>
 								</select>
 							</div>
 							<div class="col">
 								<label asp-for="PaymentFrequency" class="control-label"></label>
-								<select asp-for="PaymentFrequency" class="form-control" asp-items="Html.GetEnumSelectList<UCP.Domain.Enum.PaymentFrequency>()"></select>
+								<select asp-for="PaymentFrequency" class="form-control" asp-		items="Html.GetEnumSelectList<UCP.Domain.Enum.PaymentFrequency>()"></select>
 								<span asp-validation-for="PaymentFrequency" class="text-danger"></span>
 							</div>
 						</div>
-							
-						<div class="form-row">
-							<div class="col">
-								<label asp-for="LoanTerm" class="control-label"></label>
-								<input asp-for="LoanTerm" class="form-control" required />
-								<span asp-validation-for="LoanTerm" class="text-danger"></span>
-							</div>
-							<div class="col">
-								<label asp-for="Email" class="control-label"></label>
-								<input asp-for="Email" class="form-control" required />
-								<span asp-validation-for="Email" class="text-danger"></span>
-							</div>
-						</div>
-
-
 						<br />
 						<div class="form-row">
 							<div class="kt-form__actions">

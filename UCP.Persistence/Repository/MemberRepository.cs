@@ -50,7 +50,7 @@ namespace UCP.Persistence.Repository
                                 AccountNumber = x.AccountNumber,
                                 Email = x.Email,
                                 Gender = x.Gender,
-                                Datejoined = x.DateJoined,
+                                Datejoined = (DateTime)x.DateJoined,
                                 CreateBy = x.CreatedBy,
                                 ModifiedBy = x.ModifiedBy,
                                 ModifiedDate = x.ModifiedDate
