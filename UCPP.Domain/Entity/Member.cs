@@ -18,6 +18,6 @@ namespace UCP.Domain.Entity
         public DateTime DateOfBirth { get; set; }
         public string? AccountNumber { get; set; }
         public string? PhoneNumber { get; set; }
-      //  public ICollection<ApplyForLoan> LoanApplicant { get; set; } = new HashSet<ApplyForLoan>();
+        public ICollection<ApplyForLoan> LoanApplicant { get; set; } = new HashSet<ApplyForLoan>();
     } 
 }

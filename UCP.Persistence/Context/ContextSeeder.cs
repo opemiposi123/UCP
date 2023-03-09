@@ -36,10 +36,10 @@ namespace UCP.Persistence.Context
                 Gender = gender,
                 DateOfBirth =  DateTime.Now,
                 ModifiedBy = "Super Admin",
-                ModifiedDate = DateTime.Now
+                ModifiedDate = new DateTime()
             };
-         //   if (userManager.Members.All(u => u.Id != defaultUser.Id))
-           // {
+         //  if (userManager.Members.All(u => u.Id != defaultUser.Id))
+         //  {
                 var user = await userManager.FindByEmailAsync(defaultUser.Email);
                 if (user == null)
                 {

@@ -20,7 +20,7 @@ namespace UCP.Domain.Entity
         public string? Purpose { get; set; }
         public Guid LoanId { get; set; }
         public Loan Loan { get; set; }
-        //public Guid MemberId { get; set; }
-        //public Member Member { get; set; }
+        public Guid MemberId { get; set; }
+        public Member Member { get; set; }
     }
 }
